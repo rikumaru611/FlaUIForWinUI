@@ -9,6 +9,8 @@
     Title="MainWindow">
 
     <StackPanel Padding="20" Spacing="10">
+        <!-- Validation Message -->
+        <TextBlock x:Name="txtValidationMessage" Foreground="Red" Visibility="Collapsed"/>
 
         <!-- TextBox -->
         <TextBlock Text="Enter Name:"/>
@@ -32,5 +34,6 @@
             Submit
         </Button>
 
-    </StackPanel>
+    </StackPanel>       
+    
 </Window>
