@@ -37,43 +37,6 @@ namespace App1
             string age = (cmbAge.SelectedItem as ComboBoxItem)?.Content.ToString();
             bool isAgreed = chkAgree.IsChecked ?? false;
 
-            // Validation
-            if (string.IsNullOrWhiteSpace(name) || name.Length > 30)
-            {
-                txtValidationMessage.Text = "Name must be between 1-30 characters.";
-                txtValidationMessage.Visibility = Visibility.Visible;
-                return;
-            }
-
-            if (age == null)
-            {
-                txtValidationMessage.Text = "Please select an age.";
-                txtValidationMessage.Visibility = Visibility.Visible;
-                return;
-            }
-
-            if (!isAgreed)
-            {
-                txtValidationMessage.Text = "You must agree to continue.";
-                txtValidationMessage.Visibility = Visibility.Visible;
-                return;
-            }
-
-            // Clear validation message if all checks pass
-            txtValidationMessage.Visibility = Visibility.Collapsed;
-
-
-            var successDialog = new ContentDialog
-            {
-                Title = "Success",
-                CloseButtonText = "OK",
-                Content = new TextBlock
-                {
-                    Text = $"Submitted successfully!\n\nName: {name}\nAge: {age}\nAgreed: {isAgreed}",
-                    TextWrapping = TextWrapping.Wrap
-                }
-            };
-
             // Show Success Dialog            
             await ShowSuccessDialog(name, age, isAgreed);
         }
